@@ -4,7 +4,7 @@
   "description": "This is a simple To-Do app using React JS and webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/lakhaNamdhari/todo-using-react/issues"
   },
-  "homepage": "https://github.com/lakhaNamdhari/todo-using-react#readme"
+  "homepage": "https://github.com/lakhaNamdhari/todo-using-react#readme",
+  "devDependencies": {
+    "jshint": "^2.9.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  }
 }
