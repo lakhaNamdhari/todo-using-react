@@ -37,6 +37,8 @@ class Header extends React.Component {
     return(
       <header>
         <h1>ToDo List</h1>
+        <input type="text" value={this.props.newTaskName} onChange={this.props.updateTaskName} /> 
+        <button type="submit" onClick={this.props.createTask} >create</button> 
       </header>
     );
   }
