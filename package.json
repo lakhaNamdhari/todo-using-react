@@ -24,9 +24,11 @@
   },
   "homepage": "https://github.com/lakhaNamdhari/todo-using-react#readme",
   "devDependencies": {
+    "css-loader": "^0.28.4",
     "jshint": "^2.9.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "style-loader": "^0.18.2",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1"
   }

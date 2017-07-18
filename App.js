@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
 import Task from './components/task/Task'
+import style from './styles/app.css';
 
 class App extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       newTaskName: '',
-      data: [
+      taskList: [
         {
           id: 0,
           name: "Go to doctor"
@@ -24,36 +25,64 @@ class App extends React.Component {
       ]
     }
 
-    this.updateTaskName = this.updateTaskName.bind(this);
+    this.updateNewTaskName = this.updateNewTaskName.bind(this);
     this.createTask = this.createTask.bind(this);
+    this.updateCurrentTask = this.updateCurrentTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
-  updateTaskName(e){
+  updateNewTaskName(e){
     this.setState({
       newTaskName: e.target.value
     });
   }
 
+  updateCurrentTask(e){
+    var currentTaskId = parseInt(e.target.name);
+
+    this.state.taskList.forEach((task, i) => {
+      if (task.id === currentTaskId){
+        task.name = e.target.value;
+        return false;
+      }
+    });
+    this.setState({
+      taskList: this.state.taskList
+    });
+  }
+
   createTask(){
-    this.state.data.push({
-      id: this.state.data.length,
+    this.state.taskList.push({
+      id: this.state.taskList.length,
       name: this.state.newTaskName
     })
     this.setState({
-      data: this.state.data
+      taskList : this.state.taskList 
     });
     this.state.newTaskName = '';
+  }
+
+  deleteTask(e){
+    var currentTaskId = parseInt(e.target.id);
+
+    this.state.taskList.forEach((task, i) => {
+      if (task.id === currentTaskId){
+        this.state.taskList.splice(i, 1);
+        return false;
+      }
+    });
+    this.setState({
+      taskList: this.state.taskList
+    });  
   }
 
   render() {
     return (
       <div>
-        <Header newTaskName={this.state.newTaskName} updateTaskName={this.updateTaskName} createTask={this.createTask} />
-        <table>
-          <tbody>
-            { this.state.data.map((task, i) => <Task name={task.name} key={task.id} />) }
-          </tbody>
-        </table>
+        <Header newTaskName={this.state.newTaskName} updateNewTaskName={this.updateNewTaskName} createTask={this.createTask} />
+        <section>
+            { this.state.taskList.map((task, i) => <Task name={task.name} id={task.id} key={task.id} updateCurrentTask={this.updateCurrentTask} deleteTask={this.deleteTask}/>) }
+        </section>
       </div>
     );
   }

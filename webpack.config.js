@@ -12,6 +12,7 @@ module.exports = {
     port: 9123
   },
   module: {
+
     loaders: [
       {
         test: /\.js?$/,
@@ -20,6 +21,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      { 
+        test: /\.css$/,
+        loader: "style-loader!css-loader" 
       }
     ]
   }

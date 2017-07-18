@@ -1,0 +1,21 @@
+
+/* Generic styles */
+
+.no-borders{
+	border: none;
+}
+
+.no-borders:focus{
+	outline: 1px solid #bbb;
+}
+
+.icon-close{
+	font-family: monospace;
+	color: #ff0000;
+	text-decoration: none;
+	padding: 0 5px;
+}
+
+.flex{
+	display: flex;
+}
