@@ -25,19 +25,19 @@ class App extends React.Component {
       ]
     }
 
-    this.updateNewTaskName = this.updateNewTaskName.bind(this);
+    this.addNewTaskName = this.addNewTaskName.bind(this);
     this.createTask = this.createTask.bind(this);
-    this.updateCurrentTask = this.updateCurrentTask.bind(this);
+    this.updateTask = this.updateTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
   }
 
-  updateNewTaskName(e){
+  addNewTaskName(e){
     this.setState({
       newTaskName: e.target.value
     });
   }
 
-  updateCurrentTask(e){
+  updateTask(e){
     var currentTaskId = parseInt(e.target.name);
 
     this.state.taskList.forEach((task, i) => {
@@ -79,9 +79,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header newTaskName={this.state.newTaskName} updateNewTaskName={this.updateNewTaskName} createTask={this.createTask} />
+        <Header newTaskName={this.state.newTaskName} addNewTaskName={this.addNewTaskName} createTask={this.createTask} />
         <section>
-            { this.state.taskList.map((task, i) => <Task name={task.name} id={task.id} key={task.id} updateCurrentTask={this.updateCurrentTask} deleteTask={this.deleteTask}/>) }
+            { this.state.taskList.map((task, i) => <Task name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask}/>) }
         </section>
       </div>
     );
