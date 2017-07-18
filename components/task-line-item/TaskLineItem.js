@@ -3,10 +3,10 @@
 
 import React from 'react';
 
-class Task extends React.Component {
+class TaskLineItem extends React.Component {
   render() {
     return (
-      <div className="flex" >
+      <div className="flex task-line-item" >
         <input type="checkbox" />
         <input className="no-borders" type="text" name={this.props.id} value={this.props.name} onChange={this.props.updateTask} />
         <a className="icon-close" id={this.props.id} href="#" onClick={this.props.deleteTask}>x</a>
@@ -15,4 +15,4 @@ class Task extends React.Component {
   }
 }
 
-export default Task;
+export default TaskLineItem;

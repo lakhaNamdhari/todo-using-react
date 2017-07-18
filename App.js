@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
-import Task from './components/task/Task'
+import CreateTask from './components/create-task/CreateTask';
+import TaskLineItem from './components/task-line-item/TaskLineItem'
 import style from './styles/app.css';
 
 class App extends React.Component {
@@ -79,9 +80,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header newTaskName={this.state.newTaskName} addNewTaskName={this.addNewTaskName} createTask={this.createTask} />
+        <Header />
+        <CreateTask newTaskName={this.state.newTaskName} addNewTaskName={this.addNewTaskName} createTask={this.createTask} />
         <section>
-            { this.state.taskList.map((task, i) => <Task name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask}/>) }
+            { this.state.taskList.map((task, i) => <TaskLineItem name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask}/>) }
         </section>
       </div>
     );

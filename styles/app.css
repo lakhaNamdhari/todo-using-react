@@ -3,10 +3,12 @@
 
 .no-borders{
 	border: none;
+  background: none;
 }
 
 .no-borders:focus{
 	outline: 1px solid #bbb;
+	background: #fff;
 }
 
 .icon-close{
@@ -18,4 +20,55 @@
 
 .flex{
 	display: flex;
+}
+
+/** app styles */
+
+body{
+	font-size: 14px;
+	font-family: "helvetica";
+}
+
+body > div{
+	max-width: 400px;
+	margin: 0 auto;
+	background: #eee;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+nav a{
+  text-decoration: none;
+  color: #999;
+  margin-right: 15px;
+}
+
+h1{
+	margin: 0 0 20px 0;
+}
+
+header{
+	margin-bottom: 30px;
+}
+
+header .active{
+	color: #4285F4;
+}
+
+
+/** Task Line Item */
+.task-line-item input[type=text]{
+	padding: 5px;
+}
+
+.task-line-item input[type=checkbox]{
+	margin-top: 5px;
+}
+
+.task-line-item a{
+	margin: 6px 5px 0 0;
+}
+
+.create-task{
+	margin-bottom: 10px;
 }
