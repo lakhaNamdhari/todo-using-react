@@ -2,12 +2,23 @@
 /* This prints apps header */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(){
     super();
     this.state = {
-      navItems: {}
+      navItems: {},
+      navLinks: [
+        {
+          name: 'home',
+          url: '/'
+        },
+        {
+          name: 'contact',
+          url: '/contact'
+        }
+      ]
     };
     this.state.activeNav = 'home';
     this.state.navItems[this.state.activeNav] = 'active';
@@ -28,8 +39,8 @@ class Header extends React.Component {
     return(
       <header>
         <h1>ToDo List</h1>
-        <nav className="flex" >
-          { this.props.navLinks.map((link, i) => <a key={i} onClick={this.setActiveNavLink} className={this.state.navItems[link.name]} href={link.url} >{link.name}</a>)}
+        <nav className="flex">
+          { this.state.navLinks.map((link, i) => <Link key={i} to={link.url} className={this.state.navItems[link.name]} onClick={this.setActiveNavLink}>{link.name}</Link>) }
         </nav>
       </header>
     );

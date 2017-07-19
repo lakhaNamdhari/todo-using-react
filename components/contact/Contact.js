@@ -18,7 +18,7 @@ class Contact extends React.Component{
 				{
 					name: 'yahoo',
 					uri: 'www.yahoo.com'
-				},
+				}
 			]
 		}
 	}
@@ -27,7 +27,7 @@ class Contact extends React.Component{
 			<div className="contact">
 				<h1>Contact Us</h1>
 				<ul>
-					{ this.state.contactOptions.map((contact, i) => <li><a key={i} href={contact.uri}>contact.name</a></li>) }
+					{ this.state.contactOptions.map((contact, i) => <li key={i}><a href={contact.uri}>contact.name</a></li>) }
 				</ul>
 			</div>
 		);
