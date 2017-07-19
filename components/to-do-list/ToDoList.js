@@ -1,5 +1,4 @@
 import React from 'react';
-import CreateTask from '../create-task/CreateTask';
 import TaskLineItem from '../task-line-item/TaskLineItem'
 
 class App extends React.Component {
@@ -7,7 +6,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      newTaskName: '',
+      taskName: '',
       taskList: [
         {
           id: 0,
@@ -27,7 +26,7 @@ class App extends React.Component {
     };
     this.state.nextTaskId = this.state.taskList.length + this.state.completedTaskList.length;
 
-    this.addNewTaskName = this.addNewTaskName.bind(this);
+    this.updateTaskName = this.updateTaskName.bind(this);
     this.createTask = this.createTask.bind(this);
     this.updateTask = this.updateTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
@@ -71,20 +70,22 @@ class App extends React.Component {
     });
   }
 
-  addNewTaskName(e){
+  // Updates name for task
+  updateTaskName(e){
     this.setState({
-      newTaskName: e.target.value
+      taskName: e.target.value
     });
   }
 
+  // Creates a new task and append it to undone Task List
   createTask(){
     var list = this.state.taskList;
 
     list.push({
       id: this.state.nextTaskId++,
-      name: this.state.newTaskName
+      name: this.state.taskName
     })
-    this.state.newTaskName = '';
+    this.state.taskName = '';
     this.setState({
       taskList : list
     });
@@ -124,7 +125,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="to-do-list">
-        <CreateTask newTaskName={this.state.newTaskName} addNewTaskName={this.addNewTaskName} createTask={this.createTask} />
+        <div className="create-task">
+          <input type="text" value={this.state.taskName} onChange={this.updateTaskName} /> 
+          <button type="submit" onClick={this.createTask} >create</button> 
+        </div>
         <div>
 					{ this.state.taskList.map((task, i) => <TaskLineItem name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask} updateTaskStatus={this.updateTaskStatus}/>) }
         </div>        
