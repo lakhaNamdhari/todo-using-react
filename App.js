@@ -23,6 +23,16 @@ class App extends React.Component {
           id: 2,
           name: "Plan vacations"
         }
+      ],
+      navLinks: [
+        {
+          name: 'home',
+          url: '#'
+        },
+        {
+          name: 'contact',
+          url: '#'
+        }
       ]
     }
 
@@ -80,7 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header navLinks={this.state.navLinks} />
         <CreateTask newTaskName={this.state.newTaskName} addNewTaskName={this.addNewTaskName} createTask={this.createTask} />
         <section>
             { this.state.taskList.map((task, i) => <TaskLineItem name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask}/>) }
