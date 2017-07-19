@@ -59,16 +59,26 @@ header .active{
 /** Task Line Item */
 .task-line-item input[type=text]{
 	padding: 5px;
+	text-transform: capitalize;
 }
 
 .task-line-item input[type=checkbox]{
-	margin-top: 5px;
+	margin-top: 6px;
 }
 
 .task-line-item a{
-	margin: 6px 5px 0 0;
+	margin: 2px 5px 0 0;
 }
 
 .create-task{
 	margin-bottom: 10px;
+}
+
+.striked input[type=text]{
+	text-decoration: line-through;
+	color: #888;
+}
+
+nav a{
+	text-transform: capitalize;
 }

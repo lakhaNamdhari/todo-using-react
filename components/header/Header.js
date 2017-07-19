@@ -4,35 +4,6 @@
 import React from 'react';
 
 class Header extends React.Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
-  componentWillReceiveProps() {
-    console.log('componentWillReceiveProps');
-  }
-
-  shouldComponentUpdate() {
-    console.log('shouldComponentUpdate');
-    return true;
-  }
-
-  componentWillUpdate() {
-    console.log('componentwillUpdate');
-  }
-
-  componentDidUpdate(){
-    console.log('componentDidUpdate');
-  }
-
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-  }
-
   constructor(){
     super();
     this.state = {
@@ -44,7 +15,7 @@ class Header extends React.Component {
   }
 
   setActiveNavLink(e){
-    var clickedItemIndex = e.target.innerText;
+    var clickedItemIndex = e.target.innerText.toLowerCase();
     var state = this.state;
 
     state.navItems[this.state.activeNav] = '';

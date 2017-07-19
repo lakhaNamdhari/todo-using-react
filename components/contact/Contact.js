@@ -2,14 +2,32 @@
 import React from 'react';
 
 class Contact extends React.Component{
+	constructor(){
+		super();
+
+		this.state = {
+			contactOptions : [
+				{
+					name: 'facebook',
+					uri: 'www.facebook.com'
+				},				
+				{
+					name: 'linkedin',
+					uri: 'www.linkedin.com'
+				},				
+				{
+					name: 'yahoo',
+					uri: 'www.yahoo.com'
+				},
+			]
+		}
+	}
 	render(){
 		return(
 			<div className="contact">
 				<h1>Contact Us</h1>
 				<ul>
-					<li><a href="www.facebook.com">Facebook</a></li>
-					<li><a href="www.Linkedin.com">LinkedIn</a></li>
-					<li><a href="www.yahoo.com">Yahoo</a></li>
+					{ this.state.contactOptions.map((contact, i) => <li><a key={i} href={contact.uri}>contact.name</a></li>) }
 				</ul>
 			</div>
 		);
