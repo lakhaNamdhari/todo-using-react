@@ -7,15 +7,16 @@
 }
 
 .no-borders:focus{
-	outline: 1px solid #bbb;
+	outline: none;
 	background: #fff;
 }
 
 .icon-close{
 	font-family: monospace;
-	color: #ff0000;
-	text-decoration: none;
-	padding: 0 5px;
+  color: #ff0000;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .flex{
@@ -25,22 +26,28 @@
 /** app styles */
 
 body{
-	font-size: 14px;
-	font-family: "helvetica";
+  font-size: 14px;
+  font-family: "helvetica";
+  background: url('/images/bg1.jpg');
 }
 
-body > div{
-	max-width: 400px;
+.app{
+  width: 225px;
+  margin-top: 100px;
 	margin: 0 auto;
-	background: #eee;
 	padding: 20px;
 	box-sizing: border-box;
+	margin-top: 100px;
 }
 
 nav a{
   text-decoration: none;
-  color: #999;
+  color: #fff;
   margin-right: 15px;
+}
+
+nav a.active{
+	color: greenyellow;
 }
 
 h1{
@@ -48,35 +55,52 @@ h1{
 }
 
 header{
-	margin-bottom: 30px;
+  background: #666;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
-
-header .active{
-	color: #4285F4;
-}
-
 
 /** Task Line Item */
+.task-line-item{
+  background: #fff;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
 .task-line-item input[type=text]{
-	padding: 5px;
+	margin-left: 10px;
 	text-transform: capitalize;
 }
 
 .task-line-item input[type=checkbox]{
-	margin-top: 6px;
-}
-
-.task-line-item a{
-	margin: 2px 5px 0 0;
+	margin: 3px 0 0 0;
 }
 
 .create-task{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	display: flex;
+}
+
+.create-task input{
+	font-size: 18px;
+	max-width: 82%;
+	box-sizing: border-box;
+	border: none;
+}
+
+.create-task button{
+  border: none;
+  background: skyblue;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 10px;
 }
 
 .striked input[type=text]{
-	text-decoration: line-through;
-	color: #888;
+	color: #aaa;
 }
 
 nav a{

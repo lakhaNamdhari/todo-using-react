@@ -127,7 +127,7 @@ class App extends React.Component {
       <div className="to-do-list">
         <div className="create-task">
           <input type="text" value={this.state.taskName} onChange={this.updateTaskName} /> 
-          <button type="submit" onClick={this.createTask} >create</button> 
+          <button type="submit" onClick={this.createTask} >+</button> 
         </div>
         <div>
 					{ this.state.taskList.map((task, i) => <TaskLineItem name={task.name} id={task.id} key={task.id} updateTask={this.updateTask} deleteTask={this.deleteTask} updateTaskStatus={this.updateTaskStatus}/>) }
