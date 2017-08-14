@@ -1,0 +1,19 @@
+
+header{
+  background: #666;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav a{
+	text-transform: capitalize;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 15px;
+}
+
+nav a.active{
+	color: greenyellow;
+}

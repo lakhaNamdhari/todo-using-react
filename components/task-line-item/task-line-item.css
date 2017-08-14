@@ -1,0 +1,24 @@
+/** Task Line Item */
+
+.task-line-item{
+    background: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+}
+
+.task-line-item input[type=text]{
+  text-transform: capitalize;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 33px;
+}
+
+.task-line-item input[type=checkbox]{
+  margin: 0;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 9px;
+  left: 8px;
+}

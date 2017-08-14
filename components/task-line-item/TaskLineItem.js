@@ -2,6 +2,7 @@
 /* Task component is used to print each table row*/
 
 import React from 'react';
+import style from './task-line-item.css';
 
 class TaskLineItem extends React.Component {
   render() {
