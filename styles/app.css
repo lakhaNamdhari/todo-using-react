@@ -12,15 +12,14 @@
 }
 
 .icon-close{
-	font-family: monospace;
+  font-family: monospace;
   color: #ff0000;
   text-decoration: none;
-  font-size: 15px;
-  line-height: 1;
-}
-
-.flex{
-	display: flex;
+  font-size: 22px;
+  line-height: 16px;
+  position: absolute;
+  right: 8px;
+  top: 7px;
 }
 
 /** app styles */
@@ -32,10 +31,8 @@ body{
 }
 
 .app{
-  width: 225px;
-  margin-top: 100px;
+  width: 300px;
 	margin: 0 auto;
-	padding: 20px;
 	box-sizing: border-box;
 	margin-top: 100px;
 }
@@ -64,30 +61,39 @@ header{
 
 /** Task Line Item */
 .task-line-item{
-  background: #fff;
-  padding: 5px 10px;
-  margin-bottom: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
 }
 
 .task-line-item input[type=text]{
-	margin-left: 10px;
-	text-transform: capitalize;
+  text-transform: capitalize;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px 33px;
 }
 
 .task-line-item input[type=checkbox]{
-	margin: 3px 0 0 0;
+  margin: 0;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 9px;
+  left: 8px;
 }
 
 .create-task{
 	margin-bottom: 20px;
-	display: flex;
+  position: relative;
 }
 
 .create-task input{
-	font-size: 18px;
-	max-width: 82%;
-	box-sizing: border-box;
-	border: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  padding: 10px 50px 10px 10px;
 }
 
 .create-task button{
@@ -95,8 +101,12 @@ header{
   background: skyblue;
   color: #fff;
   font-weight: bold;
-  font-size: 18px;
-  padding: 5px 10px;
+  font-size: 21px;
+  padding: 6px 13px 7px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0px;
 }
 
 .striked input[type=text]{
