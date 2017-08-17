@@ -19,7 +19,7 @@ let taskList = [
     isCompleted: true
   } 
 ];
-
+let nextId = taskList.length;
 let taskStore = Object.create(EventEmitter.prototype);
 
 taskStore.getTaskList = function() {
@@ -39,7 +39,7 @@ let createTask = (taskName) => {
 	var response = taskList.slice();
 
 	response.push({
-		id: taskList.length,
+		id: nextId++,
 		name: taskName,
 		isCompleted: false	
 	});
@@ -48,9 +48,15 @@ let createTask = (taskName) => {
 
 // Mock Remove API
 let removeTask = (id) => {
-	var response = taskList.slice();
+	var response = taskList.slice(), i;
 
-	response.splice(id, 1);
+	for (i = 0; i < response.length; i++){
+		if (response[i].id === id){
+			response.splice(i, 1);
+			break;
+		}
+	}
+
 	return response;
 }
 
@@ -59,6 +65,23 @@ let updateTask = (payload) => {
 	var response = taskList.slice();
 
 	response[payload.id].name = payload.taskName;
+	return response;
+}
+
+// Mock Update TODO status API
+let updateTaskStatus = (payload) => {
+	var response = taskList.slice();
+
+	response[payload.id].isCompleted = payload.isCompleted;
+/*	response.sort((a, b) => {
+		if (a.isCompleted && b.isCompleted){
+			return 0;
+		}else if (a.isCompleted){
+			return 1;
+		}else{
+			return -1;
+		}
+	});*/
 	return response;
 }
 
@@ -75,6 +98,11 @@ appDispatcher.register((payload) => {
 		break;		
 
 		case 'UPDATE_TODO':
+			taskList = updateTask(payload.data);
+			taskStore.emitChange();
+		break;		
+
+		case 'UPDATE_STATUS_TODO':
 			taskList = updateTask(payload.data);
 			taskStore.emitChange();
 		break;

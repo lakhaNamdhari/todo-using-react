@@ -39,7 +39,7 @@ class App extends React.Component {
           <button type="submit" onClick={this.createTask} >+</button> 
         </div>
         <div>
-					{ this.state.taskList.map((task, i) => <TaskLineItem name={task.name} id={task.id} key={task.id} />) }
+					{ this.state.taskList.map((task, i) => <TaskLineItem task={task} key={task.id} />) }
         </div>        
       </div>
     );
