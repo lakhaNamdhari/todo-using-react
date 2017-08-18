@@ -1,6 +1,6 @@
 
-import appDispatcher from './appDispatcher.js';
 import {EventEmitter} from 'events';
+import appDispatcher from './appDispatcher.js';
 import actionTypes from './actionTypes.js';
 
 let taskList = [

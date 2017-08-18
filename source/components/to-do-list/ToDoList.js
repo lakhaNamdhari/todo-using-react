@@ -1,8 +1,9 @@
+
 import React from 'react';
-import TaskLineItem from '../task-line-item/TaskLineItem'
 import style from './to-do-list.css';
-import taskStore from '../../taskStore.js';
-import actions from '../../actions.js';
+import TaskLineItem from '../task-line-item/TaskLineItem'
+import taskStore from '../../scripts/taskStore.js';
+import actions from '../../scripts/actions.js';
 
 class App extends React.Component {
   constructor() {

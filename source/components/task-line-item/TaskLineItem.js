@@ -1,7 +1,7 @@
 
 import React from 'react';
 import style from './task-line-item.css';
-import actions from '../../actions.js';
+import actions from '../../scripts/actions.js';
 
 class TaskLineItem extends React.Component {
 	constructor(){

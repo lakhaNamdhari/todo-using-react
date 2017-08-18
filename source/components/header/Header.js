@@ -40,9 +40,11 @@ class Header extends React.Component {
     return(
       <header>
         <h1>ToDo List</h1>
+        {/* 
         <nav className="flex">
           { this.state.navLinks.map((link, i) => <Link key={i} to={link.url} className={this.state.navItems[link.name]} onClick={this.setActiveNavLink}>{link.name}</Link>) }
         </nav>
+        */}
       </header>
     );
   }
