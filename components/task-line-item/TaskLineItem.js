@@ -22,13 +22,15 @@ class TaskLineItem extends React.Component {
 
   // Updates TODO
   updateTask(e){
-    appDispatcher.dispatch({
-      type: actionTypes.UPDATE_TODO,
-      data: {
-      	id: this.props.task.id,
-      	taskName: e.target.value
-      }
-    });
+    if (!this.props.task.isCompleted){
+      appDispatcher.dispatch({
+        type: actionTypes.UPDATE_TODO,
+        data: {
+          id: this.props.task.id,
+          taskName: e.target.value
+        }
+      });    
+    }
   }  
 
   // Updates TODO's status
