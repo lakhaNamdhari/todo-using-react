@@ -13,9 +13,11 @@ class App extends React.Component {
     };
 
     this.updateState = this.updateState.bind(this);
+    this.createTask = this.createTask.bind(this);
     taskStore.onChange(this.updateState);
   }
 
+  // Update View when store changes
   updateState(){
     this.setState({
       taskList: taskStore.getTaskList()
@@ -26,16 +28,17 @@ class App extends React.Component {
   createTask(e){
     appDispatcher.dispatch({
       type: 'ADD_TODO',
-      data: e.target.previousSibling.value
+      data: this.newTaskInput.value
     });
-    e.target.previousSibling.value = '';
+    this.newTaskInput.value = '';
   }
 
+  // Renders the component
   render() {
     return (
       <div className="to-do-list">
         <div className="create-task">
-          <input type="text" /> 
+          <input type="text" ref={(input) => this.newTaskInput = input} /> 
           <button type="submit" onClick={this.createTask} >+</button> 
         </div>
         <div>

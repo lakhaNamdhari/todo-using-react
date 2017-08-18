@@ -34,6 +34,18 @@ taskStore.emitChange = function() {
 		this.emit('change');
 }
 
+let sort = (arr) => {
+	return arr.sort((a, b) => {
+		if (a.isCompleted && b.isCompleted){
+			return 0;
+		}else if (a.isCompleted){
+			return 1;
+		}else{
+			return -1;
+		}
+	});
+}
+
 // Mock create API
 let createTask = (taskName) => {
 	var response = taskList.slice();
@@ -43,7 +55,8 @@ let createTask = (taskName) => {
 		name: taskName,
 		isCompleted: false	
 	});
-	return response;
+
+	return sort(response);
 }
 
 // Mock Remove API
@@ -82,17 +95,7 @@ let updateTaskStatus = (payload) => {
 			break;
 		}
 	}
-
-	response.sort((a, b) => {
-		if (a.isCompleted && b.isCompleted){
-			return 0;
-		}else if (a.isCompleted){
-			return 1;
-		}else{
-			return -1;
-		}
-	});
-	return response;
+	return sort(response);
 }
 
 appDispatcher.register((payload) => {
