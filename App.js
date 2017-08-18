@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Header />
+          {/* <Header /> */}
           <Route exact path="/" component={ToDoList} />
           <Route path="/contact" component={Contact} />
         </div>
