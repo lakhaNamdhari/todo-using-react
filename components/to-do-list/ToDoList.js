@@ -1,9 +1,8 @@
 import React from 'react';
 import TaskLineItem from '../task-line-item/TaskLineItem'
 import style from './to-do-list.css';
-import appDispatcher from '../../appDispatcher.js';
 import taskStore from '../../taskStore.js';
-import actionTypes from '../../actionTypes.js';
+import actions from '../../actions.js';
 
 class App extends React.Component {
   constructor() {
@@ -28,10 +27,7 @@ class App extends React.Component {
 
   // Creates a new TODO
   createTask(){
-    appDispatcher.dispatch({
-      type: actionTypes.ADD_TODO,
-      data: this.newTaskInput.value
-    });
+    actions.addToDo(this.newTaskInput.value);
     this.newTaskInput.value = '';
   }  
 
