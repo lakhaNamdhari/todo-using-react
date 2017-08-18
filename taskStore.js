@@ -56,24 +56,34 @@ let removeTask = (id) => {
 			break;
 		}
 	}
-
 	return response;
 }
 
 // Mock Update API
 let updateTask = (payload) => {
-	var response = taskList.slice();
+	var response = taskList.slice(), i;
 
-	response[payload.id].name = payload.taskName;
+	for (i = 0; i < response.length; i++){
+		if (response[i].id === payload.id){
+			response[i].name = payload.taskName;
+			break;
+		}
+	}
 	return response;
 }
 
 // Mock Update TODO status API
 let updateTaskStatus = (payload) => {
-	var response = taskList.slice();
+	var response = taskList.slice(), i;
 
-	response[payload.id].isCompleted = payload.isCompleted;
-/*	response.sort((a, b) => {
+	for (i = 0; i < response.length; i++){
+		if (response[i].id === payload.id){
+				response[i].isCompleted = payload.isCompleted;
+			break;
+		}
+	}
+
+	response.sort((a, b) => {
 		if (a.isCompleted && b.isCompleted){
 			return 0;
 		}else if (a.isCompleted){
@@ -81,7 +91,7 @@ let updateTaskStatus = (payload) => {
 		}else{
 			return -1;
 		}
-	});*/
+	});
 	return response;
 }
 
@@ -103,7 +113,7 @@ appDispatcher.register((payload) => {
 		break;		
 
 		case 'UPDATE_STATUS_TODO':
-			taskList = updateTask(payload.data);
+			taskList = updateTaskStatus(payload.data);
 			taskStore.emitChange();
 		break;
 	}

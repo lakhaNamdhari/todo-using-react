@@ -31,15 +31,15 @@ class TaskLineItem extends React.Component {
       type: 'UPDATE_STATUS_TODO',
       data: {
       	id: parseInt(e.target.parentNode.id),
-      	isCompleted: e.target.value
+      	isCompleted: e.target.checked
       }
     });
   }
 
   render() {
     return (
-      <div className="task-line-item" id={this.props.task.id}>
-        <input type="checkbox" onChange={this.updateTaskStatus} />
+      <div className={this.props.task.isCompleted ? 'disabled task-line-item' : 'task-line-item'} id={this.props.task.id}>
+        <input checked={this.props.task.isCompleted} type="checkbox" onChange={this.updateTaskStatus} />
         <input className="no-borders" type="text" value={this.props.task.name} onChange={this.updateTask} />
         <a className="icon-close" href="#" onClick={this.removeTask}>x</a>
       </div>
