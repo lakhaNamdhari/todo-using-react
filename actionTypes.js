@@ -1,5 +1,5 @@
 
-const keyMirror = require('keyMirror');
+import keyMirror from 'keyMirror';
 
 module.exports = keyMirror({
 	'ADD_TODO': null,
