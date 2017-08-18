@@ -14,6 +14,7 @@ class App extends React.Component {
 
     this.updateState = this.updateState.bind(this);
     this.newTaskHandler = this.newTaskHandler.bind(this);
+    this.createTask = this.createTask.bind(this);
     taskStore.onChange(this.updateState);
   }
 
