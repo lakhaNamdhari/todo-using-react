@@ -3,6 +3,7 @@ import TaskLineItem from '../task-line-item/TaskLineItem'
 import style from './to-do-list.css';
 import appDispatcher from '../../appDispatcher.js';
 import taskStore from '../../taskStore.js';
+import actionTypes from '../../actionTypes.js';
 
 class App extends React.Component {
   constructor() {
@@ -28,7 +29,7 @@ class App extends React.Component {
   // Creates a new TODO
   createTask(){
     appDispatcher.dispatch({
-      type: 'ADD_TODO',
+      type: actionTypes.ADD_TODO,
       data: this.newTaskInput.value
     });
     this.newTaskInput.value = '';

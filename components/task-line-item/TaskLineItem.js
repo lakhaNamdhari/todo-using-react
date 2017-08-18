@@ -2,6 +2,7 @@
 import React from 'react';
 import style from './task-line-item.css';
 import appDispatcher from '../../appDispatcher.js';
+import actionTypes from '../../actionTypes.js';
 
 class TaskLineItem extends React.Component {
 	constructor(){
@@ -14,7 +15,7 @@ class TaskLineItem extends React.Component {
 	// Removes TODO
   removeTask(){
     appDispatcher.dispatch({
-      type: 'REMOVE_TODO',
+      type: actionTypes.REMOVE_TODO,
       data: this.props.task.id
     });
   }	
@@ -22,7 +23,7 @@ class TaskLineItem extends React.Component {
   // Updates TODO
   updateTask(e){
     appDispatcher.dispatch({
-      type: 'UPDATE_TODO',
+      type: actionTypes.UPDATE_TODO,
       data: {
       	id: this.props.task.id,
       	taskName: e.target.value
@@ -33,7 +34,7 @@ class TaskLineItem extends React.Component {
   // Updates TODO's status
   updateTaskStatus(e){
     appDispatcher.dispatch({
-      type: 'UPDATE_STATUS_TODO',
+      type: actionTypes.UPDATE_TODO_STATUS,
       data: {
       	id: this.props.task.id,
       	isCompleted: e.target.checked
@@ -43,7 +44,7 @@ class TaskLineItem extends React.Component {
 
   render() {
     return (
-      <div className={this.props.task.isCompleted ? 'disabled task-line-item' : 'task-line-item'}>
+      <div className={`task-line-item ${this.props.task.isCompleted ? 'disabled' : ''}` }>
         <input checked={this.props.task.isCompleted} type="checkbox" onChange={this.updateTaskStatus} />
         <input className="no-borders" type="text" value={this.props.task.name} onChange={this.updateTask} />
         <a className="icon-close" href="#" onClick={this.removeTask}>x</a>

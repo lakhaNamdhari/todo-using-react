@@ -1,6 +1,7 @@
 
 import appDispatcher from './appDispatcher.js';
 import {EventEmitter} from 'events';
+import actionTypes from './actionTypes.js';
 
 let taskList = [
   {
@@ -100,22 +101,22 @@ let updateTaskStatus = (payload) => {
 
 appDispatcher.register((payload) => {
 	switch(payload.type){
-		case 'ADD_TODO':
+		case actionTypes.ADD_TODO:
 			taskList = createTask(payload.data);
 			taskStore.emitChange();
 		break;		
 
-		case 'REMOVE_TODO':
+		case actionTypes.REMOVE_TODO:
 			taskList = removeTask(payload.data);
 			taskStore.emitChange();
 		break;		
 
-		case 'UPDATE_TODO':
+		case actionTypes.UPDATE_TODO:
 			taskList = updateTask(payload.data);
 			taskStore.emitChange();
 		break;		
 
-		case 'UPDATE_STATUS_TODO':
+		case actionTypes.UPDATE_TODO_STATUS:
 			taskList = updateTaskStatus(payload.data);
 			taskStore.emitChange();
 		break;
