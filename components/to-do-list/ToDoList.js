@@ -13,7 +13,7 @@ class App extends React.Component {
     };
 
     this.updateState = this.updateState.bind(this);
-    this.createTask = this.createTask.bind(this);
+    this.newTaskHandler = this.newTaskHandler.bind(this);
     taskStore.onChange(this.updateState);
   }
 
@@ -25,12 +25,19 @@ class App extends React.Component {
   }
 
   // Creates a new TODO
-  createTask(e){
+  createTask(){
     appDispatcher.dispatch({
       type: 'ADD_TODO',
       data: this.newTaskInput.value
     });
     this.newTaskInput.value = '';
+  }  
+
+  // Creates a new TODO
+  newTaskHandler(e){
+    if (e.keyCode === 13){
+      this.createTask();
+    }
   }
 
   // Renders the component
@@ -38,7 +45,7 @@ class App extends React.Component {
     return (
       <div className="to-do-list">
         <div className="create-task">
-          <input type="text" ref={(input) => this.newTaskInput = input} /> 
+          <input type="text" ref={(input) => this.newTaskInput = input} onKeyUp={this.newTaskHandler} /> 
           <button type="submit" onClick={this.createTask} >+</button> 
         </div>
         <div>
