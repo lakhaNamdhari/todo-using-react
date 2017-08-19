@@ -9,7 +9,9 @@ class Login extends React.Component {
 		this.state = {
 			actionUri: '/source/todo',
 			email: '',
+			emailLabel: 'Email',
 			password: '',
+			passwordLabel: 'PIN',
 			loginBtn: 'login'
 		}
 
@@ -26,8 +28,8 @@ class Login extends React.Component {
 		return(
 			<article className="login">
 				<form method="post" action={this.state.actionUri}>
-					<input placeholder="Your Email" type="email" name="email" value={this.state.email} onChange={this.updateInputState} />
-					<input placeholder="PIN" type="password" name="password" value={this.state.password} onChange={this.updateInputState} />
+					<input placeholder={this.state.emailLabel} type="email" name="email" value={this.state.email} onChange={this.updateInputState} />
+					<input placeholder={this.state.passwordLabel} type="password" name="password" value={this.state.password} onChange={this.updateInputState} />
 					<Link className="btn" to={this.state.actionUri}>{this.state.loginBtn}</Link>	
 				</form>
 			</article>

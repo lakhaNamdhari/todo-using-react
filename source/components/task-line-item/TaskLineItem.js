@@ -6,7 +6,6 @@ import actions from '../../scripts/actions.js';
 class TaskLineItem extends React.Component {
 	constructor(){
 		super();
-    this.updateToDoStatus = this.updateToDoStatus.bind(this);
     this.updateToDo = this.updateToDo.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
 	}
@@ -18,26 +17,23 @@ class TaskLineItem extends React.Component {
 
   // Updates TODO
   updateToDo(e){
-    if (!this.props.task.isCompleted){
-      actions.updateToDo({
-        id: this.props.task.id,
-        taskName: e.target.value
-      });    
-    }
-  }  
-
-  // Updates TODO's status
-  updateToDoStatus(e){
-    actions.updateToDoStatus({
+    var params = {
       id: this.props.task.id,
-      isCompleted: e.target.checked
-    });
+    };
+
+    if (e.target.type === 'checkbox'){
+      params.isCompleted = e.target.checked
+    }else{
+      params.name = e.target.value
+    }
+
+    actions.updateToDo(params);    
   }
 
   render() {
     return (
       <div className={`task-line-item ${this.props.task.isCompleted ? 'disabled' : ''}` }>
-        <input checked={this.props.task.isCompleted} type="checkbox" onChange={this.updateToDoStatus} />
+        <input checked={this.props.task.isCompleted} type="checkbox" onChange={this.updateToDo} />
         <input className="no-borders" type="text" value={this.props.task.name} onChange={this.updateToDo} />
         <a className="icon-close" href="#" onClick={this.removeToDo}>x</a>
       </div>
