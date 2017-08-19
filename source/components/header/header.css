@@ -5,15 +5,11 @@ header{
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav a{
-	text-transform: capitalize;
-  text-decoration: none;
-  color: #fff;
-  margin-right: 15px;
-}
-
-nav a.active{
-	color: greenyellow;
+h1{
+  margin: 0;
 }
