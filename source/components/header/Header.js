@@ -11,7 +11,7 @@ class Header extends React.Component {
     this.state = {
       logoText: '2do',
       logout: {
-        uri: '#',
+        uri: '/source',
         text: 'logout'
       }
     };
@@ -21,7 +21,7 @@ class Header extends React.Component {
     return(
       <header>
         <h1>{this.state.logoText}</h1>
-        <a href={this.state.logout.uri}>{this.state.logout.text}</a>
+        <Link to={this.state.logout.uri}>{this.state.logout.text}</Link>
       </header>
     );
   }

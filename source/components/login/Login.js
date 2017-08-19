@@ -1,6 +1,7 @@
 
 import React from 'react';
 import style from './login.css'
+import {Link} from 'react-router-dom';
 
 class Login extends React.Component {
 	constructor(){
@@ -9,7 +10,7 @@ class Login extends React.Component {
 			actionUri: '/source/todo',
 			email: '',
 			password: '',
-			loginBtn: 'Login'
+			loginBtn: 'login'
 		}
 
 		this.updateInputState = this.updateInputState.bind(this);
@@ -25,9 +26,9 @@ class Login extends React.Component {
 		return(
 			<article className="login">
 				<form method="post" action={this.state.actionUri}>
-					<input type="email" name="email" value={this.state.email} onChange={this.updateInputState} />
-					<input type="password" name="password" value={this.state.password} onChange={this.updateInputState} />
-					<button>{this.state.loginBtn}</button>	
+					<input placeholder="Your Email" type="email" name="email" value={this.state.email} onChange={this.updateInputState} />
+					<input placeholder="PIN" type="password" name="password" value={this.state.password} onChange={this.updateInputState} />
+					<Link className="btn" to={this.state.actionUri}>{this.state.loginBtn}</Link>	
 				</form>
 			</article>
 		);

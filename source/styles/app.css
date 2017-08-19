@@ -43,3 +43,9 @@ a{
   text-decoration: none;
   color: yellowgreen;
 }
+
+a.btn{
+  background: skyblue;
+  text-align: center;
+  color: #fff;
+}
