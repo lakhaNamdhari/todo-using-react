@@ -1,0 +1,13 @@
+
+.login form > *{
+	display: block;
+	margin-bottom: 10px;
+	width: 100%;
+	font-size: 16px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.login button{
+	background: skyblue;
+}
