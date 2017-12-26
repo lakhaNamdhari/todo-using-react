@@ -4,12 +4,15 @@ const path = require('path');
 module.exports = {
   entry: './source/scripts/main.js',
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname)
+    filename: 'bundle.js',
+    publicPath: '/assets/',
+    path: path.resolve(__dirname, 'source')
   },
   devServer: {
     inline: true,
-    port: 9123
+    host: '0.0.0.0',
+    port: 9123,
+    contentBase: 'source/'
   },
   module: {
     loaders: [

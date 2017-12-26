@@ -4,7 +4,7 @@
   "description": "This is a simple To-Do app using React JS and webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "npx webpack-dev-server"
   },
   "repository": {
     "type": "git",
